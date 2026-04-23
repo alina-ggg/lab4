@@ -8,7 +8,6 @@ typedef bool (*strategyFunc)(int, const vector<bool>&, const vector<bool>&);
 
 // 1. Случайный выбор
 bool randomChoice(int round_number, const vector<bool>& self_choices, const vector<bool>& enemy_choices) {
-    // Используем статический генератор, чтобы не инициализировать его каждый раунд
     static mt19937 gen(random_device{}());
     static uniform_int_distribution<> dist(0, 1);
     return dist(gen) == 1; // 1 - сотрудничать (true), 0 - предать (false)
